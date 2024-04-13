@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="mmweb_official@panel.mmwebxs.com" uuid="925393d6-5a39-47ec-9573-83d29384b52e">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://panel.mmwebxs.com/mmweb_official</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <time-zone>Europe/Kiev</time-zone>
+    </data-source>
+    <data-source source="LOCAL" name="mmweb_official_shadow@panel.mmwebxs.com" uuid="1c6758ee-42b0-4e63-99fe-559c15d7d880">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://panel.mmwebxs.com/mmweb_official_shadow</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <time-zone>Europe/Kiev</time-zone>
+    </data-source>
+  </component>
+</project>
