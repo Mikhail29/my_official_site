@@ -20,10 +20,12 @@ const Query = objectType({
                 return Context.prisma.user.findMany()
             },
         });
-        t.nonNull.list.nonNull.field('me', {
+        t.nonNull.field('me', {
             type: 'User',
             resolve: (_parent, _args) => {
-                return Context.prisma.user.findFirst({where: {id:1}})
+                return Context.prisma.user.findFirst({
+                    where: { id: 1 },
+                });
             },
         })
     }
