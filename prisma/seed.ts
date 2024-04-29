@@ -10,7 +10,6 @@ async function main() {
             biography: ''
         },
     });
-    console.log({ mixajlov })
 }
 
 main()

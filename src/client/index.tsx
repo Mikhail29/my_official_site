@@ -2,6 +2,7 @@ import * as React from 'react';
 import {hydrateRoot} from 'react-dom/client';
 import {BrowserRouter} from 'react-router-dom';
 import App from './components/App';
+import "./index.scss"
 
 hydrateRoot(document.getElementById('root'),
     <React.StrictMode>

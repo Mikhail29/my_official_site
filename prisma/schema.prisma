@@ -17,7 +17,46 @@ datasource db {
 
 model User {
   id    Int     @id @default(autoincrement())
-  email String  @unique
+  email String?
+  telegram_key String?
+  nickname String @unique
   name  String?
-  biography String? @db.Text
+  last_name String?
+  patronymic String?
+  birthday Int?
+  password_hash String
+  password_salt String
+  iterations Int
+}
+
+model Language {
+  id Int     @id @default(autoincrement())
+  title String
+  lang String @unique
+  country String?
+  is_default Boolean
+  translates LanguageTranslationStrings[]
+}
+
+model LanguageTranslationStrings {
+  id Int     @id @default(autoincrement())
+  key String
+  value String
+  language Language @relation(fields: [language_id], references: [id])
+  language_id Int
+}
+
+model Site {
+  id Int    @id @default(autoincrement())
+  title String
+  url String
+  settings SiteSettings[]
+}
+
+model SiteSettings {
+  id Int   @id @default(autoincrement())
+  name String
+  value String
+  site Site @relation(fields: [site_id], references: [id])
+  site_id Int
 }

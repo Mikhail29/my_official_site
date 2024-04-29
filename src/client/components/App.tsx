@@ -1,18 +1,20 @@
 import {Routes, Route} from 'react-router-dom';
 import Home from './Home';
 import About from './About';
-import Navbar from './Navbar';
+import Header from "./Header";
 
 const App = () => {
     return (
-        <main>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={ <Home/> } />
-                <Route path="/about" element={ <About/> } />
-            </Routes>
-        </main>
-    );
+        <div className="wrapper">
+            <Header/>
+            <main className="main">
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/about" element={<About/>}/>
+                </Routes>
+            </main>
+        </div>
+);
 };
 
 export default App;
