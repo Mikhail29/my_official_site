@@ -48,7 +48,7 @@ model LanguageTranslationStrings {
 
 model Site {
   id Int    @id @default(autoincrement())
-  title String
+  title String @unique
   url String
   settings SiteSettings[]
 }

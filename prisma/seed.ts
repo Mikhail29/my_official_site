@@ -2,12 +2,22 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 async function main() {
     const mixajlov = await prisma.user.upsert({
-        where: {email: 'mixajlov.mikhail92@gmail.com'},
+        where: {nickname: 'Mixajlov'},
         update: {},
         create: {
             email: 'mixajlov.mikhail92@gmail.com',
-            name: 'Mixajlov',
-            biography: ''
+            nickname: 'Mixajlov',
+            password_hash: '',
+            password_salt: '',
+            iterations: 0
+        },
+    });
+    const site = await prisma.site.upsert({
+        where: {title: 'MMWebStudioXS'},
+        update: {},
+        create: {
+            title: 'MMWebStudioXS',
+            url: 'http://localhost:3001'
         },
     });
 }
