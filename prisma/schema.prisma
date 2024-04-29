@@ -32,7 +32,7 @@ model User {
 model Language {
   id Int     @id @default(autoincrement())
   title String
-  lang String @unique
+  lang String
   country String?
   is_default Boolean
   translates LanguageTranslationStrings[]
@@ -40,8 +40,8 @@ model Language {
 
 model LanguageTranslationStrings {
   id Int     @id @default(autoincrement())
-  key String
-  value String
+  key String @db.LongText
+  value String @db.LongText
   language Language @relation(fields: [language_id], references: [id])
   language_id Int
 }
