@@ -4,3 +4,4 @@ node_modules
 /.idea
 .php-ini
 .php-version
+.node-version
