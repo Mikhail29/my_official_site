@@ -7,8 +7,26 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/telegramBot/secretar.tsx":
+/*!**************************************!*\
+  !*** ./src/telegramBot/secretar.tsx ***!
+  \**************************************/
+/***/ (() => {
+
+eval("\n\n//# sourceURL=webpack://@MMWebXS/NyOfficialSite/./src/telegramBot/secretar.tsx?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
 /******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./src/telegramBot/secretar.tsx"]();
 /******/ 	
 /******/ })()
 ;
