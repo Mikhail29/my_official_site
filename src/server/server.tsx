@@ -1,27 +1,27 @@
-const express = require("express");
-const ReactDOMServer = require("react-dom/server");
-const fs = require("fs");
-import {StaticRouter} from 'react-router-dom/server';
-import App from '../client/components/App';
-import { ApolloServer } from '@apollo/server';
-import { expressMiddleware } from '@apollo/server/express4';
-const cors = require("cors");
+const express = require('express')
+const ReactDOMServer = require('react-dom/server')
+const fs = require('fs')
+import { StaticRouter } from 'react-router-dom'
+import App from '../client/components/App'
+import { ApolloServer } from '@apollo/server'
+import { expressMiddleware } from '@apollo/server/express4'
+const cors = require('cors')
 import { schema } from './schema'
 
-const app = express();
-app.use('/static', express.static(__dirname));
-const PORT = process.env.PORT;
+const app = express()
+app.use('/static', express.static(__dirname))
+const PORT = process.env.PORT
 
 interface MyContext {
-    token?: string;
+	token?: string
 }
 
 const server = new ApolloServer({
-    schema,
-    csrfPrevention: false
-});
+	schema,
+	csrfPrevention: false,
+})
 
-await server.start();
+await server.start()
 
 /**
  * Produces the initial non-interactive HTML output of React
@@ -30,31 +30,34 @@ await server.start();
  * @param {string} location
  * @return {Promise<string>}
  */
-const createReactApp = async (location:any) => {
-    const reactApp = ReactDOMServer.renderToString(
-        <StaticRouter location={location}>
-            <App />
-        </StaticRouter>
-    );
-    const html = await fs.promises.readFile(`${__dirname}/index.html`, 'utf-8');
-    const reactHtml = html.replace(
-        '<div id="root"></div>', `<div id="root">${reactApp}</div>`);
-    return reactHtml;
-};
+const createReactApp = async (location: any) => {
+	const reactApp = ReactDOMServer.renderToString(
+		<StaticRouter location={location}>
+			<App />
+		</StaticRouter>
+	)
+	const html = await fs.promises.readFile(`${__dirname}/index.html`, 'utf-8')
+	const reactHtml = html.replace(
+		'<div id="root"></div>',
+		`<div id="root">${reactApp}</div>`
+	)
+	return reactHtml
+}
 
-app.use('/graphql',
-    cors(),
-    express.json(),
-    expressMiddleware(server, {
-        context: async ({ req }) => ({ token: req.headers.token }),
-    })
-);
+app.use(
+	'/graphql',
+	cors(),
+	express.json(),
+	expressMiddleware(server, {
+		context: async ({ req }) => ({ token: req.headers.token }),
+	})
+)
 
-app.get('*', async (req:any, res:any) => {
-    const indexHtml = await createReactApp(req.url);
-    res.status(200).send(indexHtml);
-});
+app.get('*', async (req: any, res: any) => {
+	const indexHtml = await createReactApp(req.url)
+	res.status(200).send(indexHtml)
+})
 
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-});
+	console.log(`Server started on port ${PORT}`)
+})

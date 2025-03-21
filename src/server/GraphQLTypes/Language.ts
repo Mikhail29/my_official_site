@@ -13,7 +13,7 @@ export const Language = objectType({
         t.list.field('translates', {
             type: LanguageTranslateString,
             resolve: (root, args, ctx) => {
-                return Context.prisma.languageTranslateString.findMany({
+                return Context.prisma.languageTranslationStrings.findMany({
                     where: { language_id: root.id },
                 });
             }

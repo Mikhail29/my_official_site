@@ -12,7 +12,7 @@ export const LanguageTranslateString = objectType({
         t.field("language", {
             type: Language,
             resolve: (root, args, ctx) => {
-                return Context.prisma.findFirst({
+                return Context.prisma.language.findFirst({
                     where: { id: root.language_id }
                 })
             }

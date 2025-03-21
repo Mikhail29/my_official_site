@@ -37,7 +37,7 @@ class TelegramBotController {
 		this.bot = new TelegramBot(this.token, { polling: true })
 		this.bot.on('text', this.answerForMessage)
 		this.bot.on('business_message', this.answerForBusinesssMessage)
-		this.bot.on('polling_error', error => {
+		this.bot.on('polling_error', (error: { code: any; message: any; stack: any }) => {
 			// console.log(error)
 			console.log('Polling error code: ', error.code)
 			console.log('Error Message: ', error.message)

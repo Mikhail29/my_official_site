@@ -59,6 +59,7 @@ const resolve = {
 }
 
 const serverConfig = {
+	name: 'server',
 	target: 'node',
 	mode: 'development',
 	entry: './src/server/server.tsx',
@@ -76,6 +77,7 @@ const serverConfig = {
 }
 
 const clientConfig = {
+	name: 'client',
 	target: 'web',
 	mode: 'development',
 	entry: './src/client/index.tsx',
@@ -98,6 +100,7 @@ const clientConfig = {
 }
 
 const secretarConfig = {
+	name: 'secretar',
 	target: 'node',
 	mode: 'development',
 	entry: './src/telegramBot/secretar.tsx',
